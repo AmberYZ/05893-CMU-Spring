@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="icon" href="favicon.ico">
+    <title>Index</title>
+    <!-- Bootstrap core CSS -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <!-- Bootstrap theme -->
+    <link href="css/bootstrap-theme.min.css" rel="stylesheet">
+    <!-- Custom styles for this project -->
+    <link href="css/explore.css" rel="stylesheet">
+  </head>
+  
+  <body role="document">
+    
+    <!-- Fixed navbar -->
+    <nav class="navbar navbar-inverse navbar-fixed-top">
+      <div class="container" >
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+        </div>
+        <div id="navbar" class="navbar-collapse collapse">
+          <ul class="nav navbar-nav">
+            <li class="active"><a href="#">Home</a></li>
+            <li><a href="about">About This Data Set</a></li>
+	    <li><a href="quality">Data Quality</a></li>
+          </ul>
+        </div><!--/.nav-collapse -->
+      </div>
+    </nav>
+    
+    <div class="container theme-showcase" role="main">
+      
+      <!-- Main jumbotron for a primary marketing message or call to action -->
+      <div class="jumbotron">
+	<h1>Mobile Data: Personal Weekly Activity Behaviors Analysis</h1>
+        <p>Can mobile data reflect the activity bahaviors? The following visualizations illustrate different
+        aspects of the activity behaviors in a typical week. The dataset was collected using the AWARE framework
+        and was collected from 2018-02-19 to 2018-02-28. </p>
+      </div>
+      
+    <h2> Where are my usual haunts?  </h2>
+    <p> GPS coordinates were collected every 180 seconds and mapped to the following heatmap. Through looking at the 
+    heatmap, we can easily find spots where I spent most of the time. For instance, we can easily identify that one 
+    of the regular haunts is the intersection of Fifth Avenue and Craft Avenue. In fact, this happens to be the home
+    address. Another regular haunt is the School of Fine Art building. Interestingly, based on the heatmap, I spent 
+    more time in the CFA building than in the GHC building, which is a little bit unsual for a SCS student. This is 
+    because I am also a musican and usually spend more than three hours practicing piano in CFA building on daily basis. </p>
+   <p> Feel free to look at other regular haunts of mine by dragging or zooming the map! </p>
+   <iframe width="1000" height="600" scrolling="no" frameborder="no" 
+    src="https://fusiontables.google.com/embedviz?q=select+col5+from+1XwXsL5ak7EfcORc5wk_Cow7Tc6bxRVMjjqoWVOw4+limit+1000&amp;viz=HEATMAP&amp;h=true&amp;lat=40.441899364893466&amp;lng=-79.95065534962669&amp;t=1&amp;z=15&amp;l=col5&amp;y=2&amp;tmplt=2&amp;hmd=true&amp;hmg=%2366ff0000%2C%2393ff00ff%2C%23c1ff00ff%2C%23eeff00ff%2C%23f4e300ff%2C%23f4e300ff%2C%23f9c600ff%2C%23ffaa00ff%2C%23ff7100ff%2C%23ff3900ff%2C%23ff0000ff&amp;hmo=0.6000000238418579&amp;hmr=10&amp;hmw=0&amp;hml=ONE_COL_LAT_LNG"></iframe>
+      <div class="page-header">
+      
+      
+	 <h2> What does my activity behaviors look like? </h2>
+	 <p> The activities data were collected using the Activity Recognition Plugin in the Aware Platform. The information
+	 was collected every 60 seconds. To analyze the activity behaviors, the data colelcted by the Activity Recognition
+	 were aggregated every other hour. Specifically, "Active Score" was calculated every other hour based on the activities
+	 recognized by the Plugin. For every "stationary","automotive","walking","running", and "cycling" activity, 10 points,
+	 20 points, 40 points, 80 points, and 60 points were scored respectively. Then, the Active Socre for each hour was computed
+	 by averaging the sum of points over total number of data points within one hour. 
+	 </p>
+	 <h3>What is my most active hours of the day in a typical week?</h3>
+	 <p>Despite missing data for certain hours, we can still see the pattern about the active level. I am the most active
+	 on Sunday and Saturday and the least active on Monday. In a typical day, I am most active from the noon till 10:pm. 
+	 Interestingly, on Wednesday and Friday, my active levels started to be high at 11 am in the morning. This also agrees with
+	 my regular weekly schedule, as I have morning classes at 10:30 am on Wednesdays and Fridays. </p>
+	 <p> Feel free to hover over the heatmap below to see specific active socres for a particular time slot </p>
+	 <div class='tableauPlaceholder' id='viz1520132944827' style='position: relative'><noscript>
+	 <a href='#'><img alt='Sheet 1 ' src='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;By&#47;Byte3-ActiveScore&#47;Sheet1&#47;1_rss.png' style='border: none' /></a>
+	 </noscript><object class='tableauViz'  style='display:none;'><param name='host_url' value='https%3A%2F%2Fpublic.tableau.com%2F' /> <param name='embed_code_version' value='3' /> <param name='site_root' value='' /><param name='name' value='Byte3-ActiveScore&#47;Sheet1' /><param name='tabs' value='no' /><param name='toolbar' value='yes' /><param name='static_image' value='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;By&#47;Byte3-ActiveScore&#47;Sheet1&#47;1.png' /> <param name='animate_transition' value='yes' /><param name='display_static_image' value='yes' /><param name='display_spinner' value='yes' /><param name='display_overlay' value='yes' /><param name='display_count' value='yes' /><param name='filter' value='publish=yes' /></object></div>                
+	 <script type='text/javascript'>                    
+	 var divElement = document.getElementById('viz1520132944827');                    
+	 var vizElement = divElement.getElementsByTagName('object')[0];                    
+	 vizElement.style.width='100%';vizElement.style.height=(divElement.offsetWidth*0.75)+'px';                    
+	 var scriptElement = document.createElement('script');                    
+	 scriptElement.src = 'https://public.tableau.com/javascripts/api/viz_v1.js';                    
+	 vizElement.parentNode.insertBefore(scriptElement, vizElement);                
+	 </script>
+	
+	<h3>Does weather condition affect my active level?</h3>
+	<p>Sometimes weather condition affects individual's activities. Is this true for me based on the mobile data?
+	Weather conditions were collected for the same period of time using the Open Weather Plugin in the Aware framework. 
+	The weather conditions were aggregated for every other hour. Specifically, the average humidity, pressure and wind speed
+	were calculated for each hourly slot. The mode of the weather description for each hourly slot was taked as the descritpion
+	for the entire hour. For instance, for one hourly slot, if the following weather conditions were recorded: "rain","rain","mist",
+	"rain", then the weather "rain" will be considered as the overal weather condition for this particular time frame.</p>
+	<div class='tableauPlaceholder' id='viz1520135837605' style='position: relative'><noscript><a href='#'><img alt='Sheet 2 ' src='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;By&#47;Byte3-Activityversushumiditypressureandwindspeed&#47;Sheet2&#47;1_rss.png' style='border: none' /></a></noscript><object class='tableauViz'  style='display:none;'><param name='host_url' value='https%3A%2F%2Fpublic.tableau.com%2F' /> <param name='embed_code_version' value='3' /> <param name='site_root' value='' /><param name='name' value='Byte3-Activityversushumiditypressureandwindspeed&#47;Sheet2' /><param name='tabs' value='no' /><param name='toolbar' value='yes' /><param name='static_image' value='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;By&#47;Byte3-Activityversushumiditypressureandwindspeed&#47;Sheet2&#47;1.png' /> <param name='animate_transition' value='yes' /><param name='display_static_image' value='yes' /><param name='display_spinner' value='yes' /><param name='display_overlay' value='yes' /><param name='display_count' value='yes' /><param name='filter' value='publish=yes' /></object></div>                <script type='text/javascript'>                    var divElement = document.getElementById('viz1520135837605');                    var vizElement = divElement.getElementsByTagName('object')[0];                    vizElement.style.width='100%';vizElement.style.height=(divElement.offsetWidth*0.75)+'px';                    var scriptElement = document.createElement('script');                    scriptElement.src = 'https://public.tableau.com/javascripts/api/viz_v1.js';                    vizElement.parentNode.insertBefore(scriptElement, vizElement);                </script>
+	<p>Based on the chart above, it seems that the pressure and wind speed do not strongly correlate with active levels. There is a 
+	spike of active scores when the humidity is around 90%. However, other than this spike, no strong correlation or 
+	relationship are observed. </p>
+	<div class='tableauPlaceholder' id='viz1520135911367' style='position: relative'><noscript><a href='#'><img alt='Sheet 1 ' src='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;By&#47;Byte-Activityversusweather&#47;Sheet1&#47;1_rss.png' style='border: none' /></a></noscript><object class='tableauViz'  style='display:none;'><param name='host_url' value='https%3A%2F%2Fpublic.tableau.com%2F' /> <param name='embed_code_version' value='3' /> <param name='site_root' value='' /><param name='name' value='Byte-Activityversusweather&#47;Sheet1' /><param name='tabs' value='no' /><param name='toolbar' value='yes' /><param name='static_image' value='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;By&#47;Byte-Activityversusweather&#47;Sheet1&#47;1.png' /> <param name='animate_transition' value='yes' /><param name='display_static_image' value='yes' /><param name='display_spinner' value='yes' /><param name='display_overlay' value='yes' /><param name='display_count' value='yes' /><param name='filter' value='publish=yes' /></object></div>                <script type='text/javascript'>                    var divElement = document.getElementById('viz1520135911367');                    var vizElement = divElement.getElementsByTagName('object')[0];                    vizElement.style.width='100%';vizElement.style.height=(divElement.offsetWidth*0.75)+'px';                    var scriptElement = document.createElement('script');                    scriptElement.src = 'https://public.tableau.com/javascripts/api/viz_v1.js';                    vizElement.parentNode.insertBefore(scriptElement, vizElement);                </script>
+	<p>Based on the bar chart above, I was most active when the weather condition was "few clouds" and least active when
+	the condition was "overcast clouds". However, the differences among different conditions were not very far apart.</p>
+	
+	<h3> What is my battery usage pattern?</h3>
+	<p> The battery usage pattern of an individual could tell interesting stories about an individual, as smart phones have become important
+	roles in our lives nowadays. The following diagram shows how my battery percentage level changed over a typical week. I usually turned off the
+	phone at night so the missing data reflects my sleeping hours. For instance, on could observe that I probably went to sleep at 1:00am on Monday
+	and woke up at 8:00 am, as these were the earliest and latest available data points recorded. Interestingly, on Saturday, the battery level was 
+	almost always full. This also agrees with my habits as I always stay at home on Saturdays and have my phone connected to power sources. </p>
+	<p>Feel free to hover over the visulizaiton to see the battery usage for any specific hourly time slot. </p>
+	<div class='tableauPlaceholder' id='viz1520132435077' style='position: relative'>
+	<noscript><a href='#'><img alt='Sheet 1 ' src='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;By&#47;Byte3&#47;Sheet1&#47;1_rss.png' style='border: none' />
+	</a></noscript><object class='tableauViz'  style='display:none;'><param name='host_url' value='https%3A%2F%2Fpublic.tableau.com%2F' /> 
+	<param name='embed_code_version' value='3' /> <param name='site_root' value='' /><param name='name' value='Byte3&#47;Sheet1' />
+	<param name='tabs' value='no' />
+	<param name='toolbar' value='yes' />
+	<param name='static_image' value='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;By&#47;Byte3&#47;Sheet1&#47;1.png' /> 
+	<param name='animate_transition' value='yes' /><param name='display_static_image' value='yes' />
+	<param name='display_spinner' value='yes' /><param name='display_overlay' value='yes' />
+	<param name='display_count' value='yes' /><param name='filter' value='publish=yes' />
+	</object>
+	</div>                
+	<script type='text/javascript'>                    
+	var divElement = document.getElementById('viz1520132435077');                    
+	var vizElement = divElement.getElementsByTagName('object')[0];                    
+	vizElement.style.width='100%';vizElement.style.height=(divElement.offsetWidth*0.75)+'px';                    
+	var scriptElement = document.createElement('script');                    
+	scriptElement.src = 'https://public.tableau.com/javascripts/api/viz_v1.js';                    
+	vizElement.parentNode.insertBefore(scriptElement, vizElement);                
+	</script>
+
+
+
+
+	
+      </div> <!-- /page-header -->
+    </div> <!-- /container -->
+
+<svg></svg>
+
+
+<!-- STYLES FOR D3 -->
+<style>
+/* Styles for date/time chart */
+path { 
+    stroke: steelblue;
+    stroke-width: 2;
+    fill: none;
+}
+
+.axis path,
+.axis line {
+    fill: none;
+    stroke: grey;
+    stroke-width: 1;
+    shape-rendering: crispEdges;
+}
+
+div.tooltip {	
+    position: absolute;			
+    text-align: center;			
+    width: 60px;					
+    height: 28px;					
+    padding: 2px;				
+    font: 12px sans-serif;		
+    background: lightsteelblue;	
+    border: 0px;		
+    border-radius: 8px;			
+    pointer-events: none;			
+}
+/* End styles for date/time chart */
+
+/* Styles for bar chart */
+.bar {
+  fill: steelblue;
+}
+.bar:hover {
+  fill: brown;
+}
+/* End styles for bar chart*/
+</style>
+
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="js/jquery-1.11.3.min.js"></script>
+    <script src="js/bootstrap.min.js"></script> 
+    <script src="https://d3js.org/d3.v4.min.js"></script>
+
+</html>

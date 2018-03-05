@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="icon" href="favicon.ico">
+    <title>Quality of This Data</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <!-- Bootstrap theme -->
+    <link href="css/bootstrap-theme.min.css" rel="stylesheet">
+    <!-- Custom styles for this template -->
+    <link href="css/theme.css" rel="stylesheet">
+  </head>
+
+  <body role="document">
+
+    <!-- Fixed navbar -->
+    <nav class="navbar navbar-inverse navbar-fixed-top">
+      <div class="container">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+        </div>
+        <div id="navbar" class="navbar-collapse collapse">
+          <ul class="nav navbar-nav">
+            <li><a href="/">Home</a></li>
+            <li><a href="about">About This Data Set</a></li>
+	    <li  class="active"><a href="quality">Data Quality</a></li>
+          </ul>
+        </div><!--/.nav-collapse -->
+      </div>
+    </nav>
+
+    <div class="container theme-showcase" role="main">
+
+      <!-- Main jumbotron for a primary marketing message or call to action -->
+      <div class="jumbotron">
+	<h1>Quality: About This Data Set</h1>
+        <p>The quality of the data set is decent in general. Missing data is a big concern for the data. However, the dataset is
+        coherent and correct overall. The detailed information about data completeness, coherence, and correctness are
+        documented below. The decisions for treating incomplete, incoherent, and incorrect data and ensuring the quality 
+        of the visualization are also documented below. </a></p>
+      </div>
+
+    
+      <div class="page-header">
+	<h2>Is the data complete?</h2>
+	<p>There are several missing instances in the dataset. <br>
+	1) There are 3608 missing instances in the data
+	collected by the Activity Regniction. These records only contain empty strings for the recognized activities. 
+	From the data cleaning pont of view, there is no reliable way to recover these missing information and it is also
+	not resonable to assume that these missing information represents any particular type of activities. The potential 
+	cause for the missing data could be: low battery mode, phone being switched off etc.  <br>
+	2) There are 1039 missing instances in the pressure data collected by the Open Weather Plugin. Similarly, there is no
+	reliable way to recover these missing information. During the data preprocessing, the average pressures were calculated
+	while ignoring these missing data points, assuming the air pressure usually tends not to change drastically within a single hour. <br>
+	3) The following data tables resulted in empty set: audio (ambient noise) and studentlife audio (Conversations). 
+	Therefore, these table tables were discarded for the purpose of the visulizaiton <br>
+	4) There are several missing data points in the locations and battery records. For instance, locations are supposed to be 
+	recorded every other 180s and, therefore, there should 20 location data records within one hour. However, in the dataset, 
+	there are several hourly slots where the number of data points are less than 20. From the point view of data visualization,
+	the missing data did not significantly affect the quality of the analysis, as enough data were collected for more than one week. 
+	Therefore, we can still observe the general trend despite missing information.</p>
+	
+      </div>
+      
+      <div class="page-header">
+	<h2>Is the data coherent?</h2>
+	<p>1) The locations data are coherent on its own. All coordinates recorded are within the the zipcode area 15213. This illustrates
+	 the coherent picture of a typical CMU students. <br>
+	   2) The activities data do have some incoherent aspects. First of all, the confidence levels for the predictions are always 1. 
+	   However, the predicted activities include several wrongly predicted instances (see next section for details). Therefore, the 
+	   confidence levels of the predictions do not convey the coherent information. <br>
+	   3) The battery data are coherent in nature. The dataset reflect the battery level, charging and discharging patterns coherently. </b>
+	   4) The weather and calls data are coherent in general. However, these two data tables contains several incorrect information. The
+	   detailed data preprocessing procedures are documented in the next section. 
+	   </p>
+      </div>
+
+      <div class="page-header">
+	<h2>Is the data correct?</h2>
+	<p> 
+	1) The locations data are generally correct. The GPS coordinates are all within the areas where I've been to during the
+	span of the study. The altitude levels recorded also agree with the altitude of the Pittsburgh (416 m, given by peakbagger.com).
+	However, the bearing information could be wrongly recorded as all values in the dataset are -1, which is unrealistic. Therefore,
+	during the visualizaiton analysis, the bearing information was excluded. <br>
+	2) In the activities data, there are instances of "cycling activities" recorded. However, I never cycled throughout the span
+	of the study. However, although these activities were wrongly recognized, it still reflected the active level. For instance, I 
+	may be doing acitivities that are similar to cycling. These activities should represent more active levels compared to "stationary". 
+	Therefore, when calculating the average active score for hourly slots, the activity "cycling" still receives 60 points, which is less
+	than the scores of "running" and more than those of "walking". <br>
+	3) The battery data are generally correct, as all data are recorded within the range of 0 and 100, which agrees with the true 
+	range of battery in real life. <br>
+	4) The bluetooth data are generally correct, as all recorded data indicate that the bluetooth was on. This agrees with the real case as
+	I always have my bluetooth connection on. However, since the bluetooth data do not convey any insightful information, it was excluded
+	for the visualization analysis. <br>
+	5) The calls data invovles too many wrong information. In the dataset, multiple calls of 2-30 seconds were recorded. However, I never
+	made any phone call and received only one phone call throughout the span of the study. The potential reason for this incorrectness could 
+	be that the AWARE misunderstood cases where my phone connecting to my car as the incoming phone call, as the timestamp for these calls in 
+	the dataset generally matches the time I was driving. Due to the erroneous information, the calls data were excluded from the visualization.  <br>
+	6) The Open weather data are generally correct. Although there is no good way to verify the information for every 180 seconds that data were
+	 recorded, the recorded weather conditions match the overall weather of the Pittsburgh during the span of the study. However, the temperature 
+	 collected from the Open weather Plugin seemed to be incorrect because all data points have recorded temperature of over 200 degrees. 
+	 This does not agree with the real temperature in Pittsburgh during the span of the study. Therefore, the temperature data were excluded 
+	 from the visualization. 
+	</p>
+      </div>
+
+    </div> <!-- /container -->
+
+
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="js/jquery-1.11.3.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/docs.min.js"></script>
+  </body>
+</html>
